@@ -18,9 +18,6 @@ public class Regulation {
 
   private String name;
 
-  @ManyToOne
-  private Segment segment;
-
   public Regulation() {
   }
 
@@ -40,26 +37,17 @@ public class Regulation {
     this.name = name;
   }
 
-  public Segment getSegment() {
-    return segment;
-  }
-
-  public void setSegment(final Segment segment) {
-    this.segment = segment;
-  }
-
   @Override
   public boolean equals(final Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     final Regulation that = (Regulation) o;
     return id == that.id &&
-            Objects.equals(name, that.name) &&
-            Objects.equals(segment, that.segment);
+            Objects.equals(name, that.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, segment);
+    return Objects.hash(id, name);
   }
 }

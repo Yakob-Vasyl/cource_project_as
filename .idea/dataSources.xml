@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="cyber_physical_system@localhost" uuid="c03f2eb2-6e1c-43e6-9d14-018722a6dbbb">
+    <data-source source="LOCAL" name="auto_system@localhost" uuid="46115721-b5e8-4772-8f11-84c6400925e5">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/cyber_physical_system</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/auto_system</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />

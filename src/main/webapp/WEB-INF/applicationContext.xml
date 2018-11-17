@@ -61,5 +61,5 @@
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
     <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
-    <import resource="security.xml"/>
+    <!--<import resource="security.xml"/>-->
 </beans>
