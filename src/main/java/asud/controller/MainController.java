@@ -12,6 +12,7 @@ import java.util.List;
 
 @Controller
 public class MainController {
+  private static final long DEFAULT_ID = 1L;
 
   @Autowired
   private AutomationSystemDAO systemDAO;
@@ -20,9 +21,10 @@ public class MainController {
   public String showPage(final Model model) {
 
     final List<AutomationSystem> automationSystems = systemDAO.findAll();
-
-    model.addAttribute("hello", "Микитин зло");
-    return "initial";
+    final AutomationSystem automationSystem = systemDAO.findOne(DEFAULT_ID);
+    model.addAttribute("automationSystemsList", automationSystems);
+    model.addAttribute("automationSystem", automationSystem);
+    return "index";
   }
 
   @RequestMapping(value = "/login")

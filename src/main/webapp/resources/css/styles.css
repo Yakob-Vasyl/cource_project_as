@@ -6190,7 +6190,7 @@ body .table-td-inner {
 
 body .table-td-inner span:nth-child(n+2) {
     padding-top: 5px;
-    border-top: 1px solid #ddd
+    /*border-top: 1px solid #ddd*/
 }
 
 body .table-bordered > thead > tr > th {
