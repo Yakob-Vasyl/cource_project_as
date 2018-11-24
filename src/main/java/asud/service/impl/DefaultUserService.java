@@ -44,7 +44,7 @@ public class DefaultUserService implements UserService, UserDetailsService {
     return userDAO.findByEmail(s);
   }
 
-//  @PostConstruct
+  @PostConstruct
   public void addUser() {
     User user = userDAO.findByEmail("defaultUser");
     if (user == null) {
