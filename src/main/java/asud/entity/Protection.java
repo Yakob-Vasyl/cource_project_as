@@ -1,14 +1,15 @@
 package asud.entity;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import java.util.Objects;
+import java.util.List;
 
 @Entity
-public class Regulation {
+public class Protection {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,11 +17,11 @@ public class Regulation {
 
   private String name;
 
+  @ElementCollection
+  private List<String> protections;
+
   @ManyToOne
   private AutomationSystem automationSystem;
-
-  public Regulation() {
-  }
 
   public long getId() {
     return id;
@@ -38,25 +39,23 @@ public class Regulation {
     this.name = name;
   }
 
+  public List<String> getProtections() {
+    return protections;
+  }
+
+  public void setProtections(final List<String> protections) {
+    this.protections = protections;
+  }
+
   public AutomationSystem getAutomationSystem() {
     return automationSystem;
   }
 
-  public void setAutomationSystem(final AutomationSystem system) {
-    this.automationSystem = system;
+  public void setAutomationSystem(final AutomationSystem automationSystem) {
+    this.automationSystem = automationSystem;
   }
 
-  @Override
-  public boolean equals(final Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    final Regulation that = (Regulation) o;
-    return id == that.id &&
-            Objects.equals(name, that.name);
+  public Protection() {
   }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, name);
-  }
 }

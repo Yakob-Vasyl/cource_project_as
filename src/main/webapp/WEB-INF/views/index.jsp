@@ -65,7 +65,7 @@
                     <div class="table-td-inner">
                         <c:forEach var="protect" items="${segment.threatProtections}">
                             <span>
-                                    ${protect.protection}
+                                    ${protect.protections}
                             </span>
                         </c:forEach>
                     </div>
