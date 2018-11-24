@@ -1,7 +1,11 @@
 package asud.entity;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,7 +21,8 @@ public class Protection {
 
   private String name;
 
-  @ElementCollection
+  @ElementCollection(fetch = FetchType.EAGER)
+  @Fetch(value = FetchMode.SUBSELECT)
   private List<String> protections;
 
   @ManyToOne
