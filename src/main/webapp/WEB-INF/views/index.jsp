@@ -22,109 +22,112 @@
             </div>
         </nav>
     </div>
+    <div class="row">
+        <h3>${automationSystem.name}</h3>
+    </div>
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>АС</th>
+                <th>Модель загроз</th>
+                <th>Поведінка порушника</th>
+                <th>Технології захисту АС</th>
+                <th>Нормативне забезпечення захисту АС</th>
+            </tr>
+            </thead>
+            <tbody>
 
-    <h3>${automationSystem.name}</h3>
+            <tr>
+                <td>
+                    <div class="table-td-inner">
+                        <h2>${automationSystem.name}</h2>
+                        <img src="/resources/images/${automationSystem.id}.png">
+                        Функції
+                        <br>
+                        <ul>
+                            <c:forEach items="${automationSystem.functions}" var="functions">
+                                <li>${functions}</li>
+                            </c:forEach>
+                        </ul>
 
-    <table class="table table-bordered">
-        <thead>
-        <tr>
-            <th>АС</th>
-            <th>Модель загроз</th>
-            <th>Поведінка порушника</th>
-            <th>Технології захисту АС</th>
-            <th>Нормативне забезпечення захисту АС</th>
-        </tr>
-        </thead>
-        <tbody>
+                        <br>
+                        Приклади
+                        <br>
+                        <ul>
+                            <c:forEach items="${automationSystem.examlpes}" var="example">
+                                <li>${example}</li>
+                            </c:forEach>
+                        </ul>
 
-        <tr>
-            <td>
-                <div class="table-td-inner">
-                    <h2>${automationSystem.name}</h2>
-                    <img src="/resources/images/${automationSystem.id}.png">
-                    Функції
-                    <br>
-                    <ul>
-                        <c:forEach items="${automationSystem.functions}" var="functions">
-                            <li>${functions}</li>
+                    </div>
+                </td>
+                <td>
+                    <div class="table-td-inner">
+                        <c:forEach var="threat" items="${automationSystem.threats}">
+                            <strong>${threat.name}</strong>
+                            Апаратні
+                            <ul>
+                                <c:forEach items="${threat.hardwareThreats}" var="hardwareThreat">
+                                    <li>
+                                            ${hardwareThreat}
+                                    </li>
+                                </c:forEach>
+                            </ul>
+                            Програмні
+                            <ul>
+                                <c:forEach items="${threat.softwareThreats}" var="softwareThreat">
+                                    <li>
+                                            ${softwareThreat}
+                                    </li>
+                                </c:forEach>
+                            </ul>
+
                         </c:forEach>
-                    </ul>
-
-                    <br>
-                    Приклади
-                    <br>
-                    <ul>
-                        <c:forEach items="${automationSystem.examlpes}" var="example">
-                            <li>${example}</li>
+                    </div>
+                </td>
+                <td>
+                    <div class="table-td-inner">
+                        <c:forEach var="intruder" items="${automationSystem.intruders}">
+                            <strong>${intruder.name}</strong>
+                            <ul>
+                                <c:forEach var="intruderInner" items="${intruder.intruders}">
+                                    <li>
+                                            ${intruderInner}
+                                    </li>
+                                </c:forEach>
+                            </ul>
                         </c:forEach>
-                    </ul>
-
-                </div>
-            </td>
-            <td>
-                <div class="table-td-inner">
-                    <c:forEach var="threat" items="${automationSystem.threats}">
-                        <strong>${threat.name}</strong>
-                        Апаратні
-                        <ul>
-                            <c:forEach items="${threat.hardwareThreats}" var="hardwareThreat">
-                                <li>
-                                        ${hardwareThreat}
-                                </li>
-                            </c:forEach>
-                        </ul>
-                        Програмні
-                        <ul>
-                            <c:forEach items="${threat.softwareThreats}" var="softwareThreat">
-                                <li>
-                                        ${softwareThreat}
-                                </li>
-                            </c:forEach>
-                        </ul>
-
-                    </c:forEach>
-                </div>
-            </td>
-            <td>
-                <div class="table-td-inner">
-                    <c:forEach var="intruder" items="${automationSystem.intruders}">
-                        <strong>${intruder.name}</strong>
-                        <ul>
-                            <c:forEach var="intruderInner" items="${intruder.intruders}">
-                                <li>
-                                        ${intruderInner}
-                                </li>
-                            </c:forEach>
-                        </ul>
-                    </c:forEach>
-                </div>
-            </td>
-            <td>
-                <div class="table-td-inner">
-                    <c:forEach var="protection" items="${automationSystem.protections}">
-                        <strong>${protection.name}</strong>
-                        <ul>
-                            <c:forEach items="${protection.protections}" var="protectionInner">
-                                <li>
-                                        ${protectionInner}
-                                </li>
-                            </c:forEach>
-                        </ul>
-                    </c:forEach>
-                </div>
-            </td>
-            <td>
-                <div class="table-td-inner">
-                    <c:forEach var="regulation" items="${automationSystem.regulations}">
+                    </div>
+                </td>
+                <td>
+                    <div class="table-td-inner">
+                        <c:forEach var="protection" items="${automationSystem.protections}">
+                            <strong>${protection.name}</strong>
+                            <ul>
+                                <c:forEach items="${protection.protections}" var="protectionInner">
+                                    <li>
+                                            ${protectionInner}
+                                    </li>
+                                </c:forEach>
+                            </ul>
+                        </c:forEach>
+                    </div>
+                </td>
+                <td>
+                    <div class="table-td-inner">
+                        <c:forEach var="regulation" items="${automationSystem.regulations}">
                             <span>
                                     ${regulation.name}
                             </span>
-                    </c:forEach>
-                </div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+                        </c:forEach>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
 </div>
 </body>
 </html>
