@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -13,14 +15,20 @@
 <body>
 <div class="container-fluid">
     <div class="row">
-        <nav class="navbar navbar-brand col-md-12">
+        <nav class="navbar navbar-brand col-md-11">
             <div class="navbar-header">
                 <c:forEach var="automationSystem" items="${automationSystemsList}">
                     <a href="/${automationSystem.id}">${automationSystem.name}</a>
                     <br/>
                 </c:forEach>
             </div>
+
         </nav>
+        <div class="col-md-1">
+        <form:form action="/logout" method="POST">
+            <button type="submit" class="btn btn-link">Вийти</button>
+        </form:form>
+    </div>
     </div>
     <div class="row">
         <h3>${automationSystem.name}</h3>
